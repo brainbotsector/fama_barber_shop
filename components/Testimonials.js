@@ -89,7 +89,7 @@ const Testimonials = () => {
             Client <span className={styles.highlight}>Testimonials</span>
           </h2>
           <p className={styles.sectionSubtitle}>
-            Don't just take our word for it - hear what our satisfied have to say about their experience at Fama Barber Shop
+           {"Don't just take our word for it - hear what our satisfied have to say about their experience at Fama Barber Shop"}
           </p>
         </div>
 
