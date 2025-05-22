@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Testimonials.module.css';
-
+import Image from 'next/image';
 const testimonials = [
   {
     name: 'Chris Taylor',
@@ -134,7 +134,7 @@ const Testimonials = () => {
                       <div className={styles.avatar}>
                       
                         {testimonial.avatar ? (
-                          <img src={testimonial.avatar} alt={testimonial.name} />
+                          <Image src={testimonial.avatar} alt={testimonial.name} />
                         ) : (
                           <div className={styles.initials}>
                             {testimonial.name.split(' ').map(n => n[0]).join('')}
