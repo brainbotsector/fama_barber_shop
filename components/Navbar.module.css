@@ -1,0 +1,530 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: linear-gradient(
+    to right,
+    var(--background-color) 60%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+  background: linear-gradient(
+    to right,
+    var(--background-color) 60%,
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.logoImage {
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.desktopMenu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.navLinkContent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.navIcon {
+  display: none;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), #e6c352);
+  transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 3px;
+  opacity: 0;
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.navLink:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.navLink.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.bookNowBtn {
+  background: linear-gradient(135deg, var(--primary-color), #e6c352);
+  color: var(--light-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bookNowBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.bookNowBtn:hover::before {
+  left: 100%;
+}
+
+.bookNowBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  z-index: 1001;
+  position: relative;
+}
+
+.menuButton svg {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.mobileMenuBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: -1;
+}
+
+.mobileNavLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.mobileNavLink {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+
+.mobileNavIcon {
+  font-size: 1.3rem;
+  opacity: 0.8;
+  display: block;
+}
+
+.mobileNavLink:hover,
+.mobileNavLink.active {
+  color: var(--primary-color);
+  background: rgba(212, 175, 55, 0.1);
+  transform: scale(1.05);
+}
+
+.mobileNavLink.active {
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobileThemeToggle {
+  margin-bottom: 10px;
+}
+
+.mobileBookNowBtn {
+  background: linear-gradient(135deg, var(--primary-color), #e6c352);
+  color: var(--light-text);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobileBookNowBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.mobileBookNowBtn:hover::before {
+  left: 100%;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 25px;
+  }
+  
+  .navLinks {
+    gap: 25px;
+  }
+  
+  .desktopMenu {
+    gap: 25px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .desktopMenu {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .navIcon {
+    display: none;
+  }
+
+  .mobileNavIcon {
+    display: block;
+  }
+  
+  .navbar {
+    padding: 18px 0;
+  }
+  
+  .navbar.scrolled {
+    padding: 12px 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .desktopMenu {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .logoImage {
+    max-width: 120px;
+  }
+
+  .navIcon {
+    display: none;
+  }
+
+  .mobileNavIcon {
+    display: block;
+  }
+  
+  .navbar {
+    padding: 16px 0;
+  }
+  
+  .navbar.scrolled {
+    padding: 10px 0;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .mobileNavLink {
+    font-size: 1.4rem;
+    gap: 10px;
+  }
+  
+  .mobileNavLinks {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .logoImage {
+    max-width: 100px;
+  }
+
+  .mobileNavLink {
+    font-size: 1.3rem;
+  }
+
+  .navIcon {
+    display: none;
+  }
+
+  .mobileNavIcon {
+    display: block;
+  }
+  
+  .navbar {
+    padding: 14px 0;
+  }
+  
+  .navbar.scrolled {
+    padding: 8px 0;
+  }
+  
+  .mobileNavLinks {
+    gap: 20px;
+  }
+  
+  .mobileBookNowBtn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .logoImage {
+    max-width: 90px;
+  }
+  
+  .mobileNavLink {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  
+  .mobileNavLinks {
+    gap: 18px;
+  }
+  
+  .mobileBookNowBtn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .mobileNavIcon {
+    font-size: 1.2rem;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .logoImage {
+    max-width: 80px;
+  }
+  
+  .mobileNavLink {
+    font-size: 1.1rem;
+    padding: 6px 14px;
+  }
+  
+  .mobileNavLinks {
+    gap: 16px;
+  }
+  
+  .mobileActions {
+    gap: 16px;
+  }
+  
+  .mobileBookNowBtn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .menuButton {
+    font-size: 1.4rem;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .container {
+    padding: 0 8px;
+  }
+  
+  .logoImage {
+    max-width: 70px;
+  }
+  
+  .navbar {
+    padding: 12px 0;
+  }
+  
+  .navbar.scrolled {
+    padding: 6px 0;
+  }
+  
+  .mobileNavLink {
+    font-size: 1rem;
+    padding: 5px 12px;
+    gap: 6px;
+  }
+  
+  .mobileNavLinks {
+    gap: 14px;
+    margin: 0 0 30px 0;
+  }
+  
+  .mobileActions {
+    gap: 14px;
+  }
+  
+  .mobileBookNowBtn {
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    border-radius: 25px;
+  }
+  
+  .mobileNavIcon {
+    font-size: 1.1rem;
+  }
+  
+  .menuButton {
+    font-size: 1.3rem;
+  }
+}
+
+
+@media (min-width: 993px) {
+  .navLink:hover {
+    transform: perspective(500px) translateZ(10px);
+  }
+
+  .logo:hover {
+    transform: perspective(500px) translateZ(10px);
+  }
+}
