@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from './Gallery.module.css';
-
+import Image from 'next/image';
 const images = [
   { src: '/assets/images/barber-shop-interior.jpeg', alt: 'Barber shop' },
   { src: '/assets/images/barber-tools.jpg', alt: 'Barber tools' },
@@ -154,7 +154,7 @@ const Gallery = () => {
                     >
                       <div className={styles.imageCardInner}>
                         <div className={styles.imageWrapper}>
-                          <img
+                          <Image
                             src={image.src}
                             alt={image.alt}
                             className={styles.image}
@@ -241,7 +241,7 @@ const Gallery = () => {
                 }}
               >
                 <div className={styles.gridImageContainer}>
-                  <img
+                  <Image
                     src={image.src}
                     alt={image.alt}
                     className={styles.gridImage}
